@@ -17,6 +17,11 @@ const TodoList = () => {
     setInputData(event.target.value);
   };
 
+  const deleteItem = (id) => {
+    console.log(`Item deleted id ${id}`);
+    setTodo((prevData) => prevData.filter((_, index) => index !== id));
+  };
+
   return (
     <div className="main_div">
       <div className="center_div">
@@ -33,7 +38,12 @@ const TodoList = () => {
 
         <ol>
           {myTodos.map((value, index) => (
-            <ListData index={index} itemData={value} />
+            <ListData
+              key={index}
+              itemData={value}
+              id={index}
+              onSelect={deleteItem}
+            />
           ))}
         </ol>
       </div>
