@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ListData from "../components/ListData";
 
 import "../components/todo_list_style.css";
 
@@ -31,9 +32,9 @@ const TodoList = () => {
         <button onClick={addTodo}>+</button>
 
         <ol>
-          {myTodos.map((value, index) => {
-            return <li key={index}>{value}</li>;
-          })}
+          {myTodos.map((value, index) => (
+            <ListData index={index} itemData={value} />
+          ))}
         </ol>
       </div>
     </div>
